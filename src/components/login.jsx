@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
-    const {loginWithGoogle,loginWithGithub} = useContext(AuthContext)
+    const {loginWithGoogle,loginWithGithub,login} = useContext(AuthContext)
     
     const loginWithGoogleHandler = ()=>{
             loginWithGoogle()
@@ -25,10 +25,11 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password)
-        toast.success('Logged in successfully')
+        login(email,password)
+        .then(res=> console.log(res))
+        .catch(err=> console.log(err))
     }
-    
+
     return (
         <>
         <ToastContainer />

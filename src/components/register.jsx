@@ -1,9 +1,13 @@
 import { ToastContainer, toast } from 'react-toastify';
-import { FcGoogle } from "react-icons/fc";
-import { FaGithubSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
+
+    const {updateProfileData,createAccount} = useContext(AuthContext)
+
+
     const handleSubmit =(e)=>{
         e.preventDefault()
         const form = e.target
@@ -11,8 +15,21 @@ const Login = () => {
         const email = form.email.value
         const photoUrl = form.photoUrl.value
         const password = form.password.value
-        console.log(name, email, photoUrl, password)
-        toast.success('Logged in successfully')
+        if(password.length < 6 || /[A-Z]/.test(password) === false || /[a-z]/.test(password) === false){
+            toast.error('Password must have an uppercase and lowercase letter with at least 6 characters')
+        }
+        else{
+        createAccount(email,password)
+        .then(()=>{
+
+                updateProfileData({displayName:name, photoURL: photoUrl})
+                .then(res=>{
+                    toast.success('Account created successfully')
+                    console.log(res)
+            })
+        })
+        .catch(err=> console.log(err))
+        }
     }
     return (
         <>

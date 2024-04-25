@@ -10,11 +10,16 @@ import AddItem from './components/addItem.jsx'
 import MyArtsAndCrafts from './components/allArts.jsx'
 import AuthProvider from './providers/authProvider.jsx'
 import 'react-toastify/dist/ReactToastify.css'
+import Home from './components/home.jsx'
 
 const router = createBrowserRouter([{
     path:'/',
     element: <App/>,
     children:[
+      {
+        path: '/',
+        element:<Home/>
+      },
       {
         path:'/login',
         element: <Login/>

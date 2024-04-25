@@ -40,10 +40,10 @@ const Navbar = () => {
   <div className="navbar-end">
     {loader? <span className="loading loading-bars loading-md text-blue-300"></span> : userLoggedin ? <div className="dropdown dropdown-hover dropdown-bottom">
         <div>
-<img className="w-[50px] h-[50px] rounded-full" src={`${userLoggedin.photoURL}`}/> 
+<img className="w-[50px] h-[50px] rounded-full object-cover" src={`${userLoggedin.photoURL}`}/> 
         </div>
         <ul tabIndex={0} className="dropdown-content z-[1] right-3  p-2 shadow bg-base-100 rounded-box w-[150px] flex flex-col gap-3 px-5">
-            <li className="font-normal"><h1>{userLoggedin.displayName}</h1></li>
+            <li className="font-normal"><h1 className="text-center">{userLoggedin.displayName}</h1></li>
             <li className="flex justify-center"><button className="bg-black px-2 font-medium rounded-md py-2 text-white" onClick={handleLogout}>Log Out</button></li>
   </ul>
     </div>: <div className="flex items-center gap-4"><Link className="btn" to='/login'>Log In</Link><Link className="btn" to='/signup'>Register</Link></div>}
