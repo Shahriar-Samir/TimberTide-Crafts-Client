@@ -5,8 +5,14 @@ import { Tooltip } from 'react-tooltip';
 
 
 const Navbar = () => {
-    const {userLoggedin,loader} = useContext(AuthContext)
-    console.log(userLoggedin)
+    const {userLoggedin,loader,logOut} = useContext(AuthContext)
+
+    const handleLogout = ()=>{
+        logOut()
+        .then(res=> console.log(res))
+        .catch(err=> console.log(err))
+    }
+
     return (
         <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -38,7 +44,7 @@ const Navbar = () => {
         </div>
         <ul tabIndex={0} className="dropdown-content z-[1] right-3  p-2 shadow bg-base-100 rounded-box w-[150px] flex flex-col gap-3 px-5">
             <li className="font-normal"><h1>{userLoggedin.displayName}</h1></li>
-            <li className="flex justify-center"><button className="bg-black px-2 font-medium rounded-md py-2 text-white">Log Out</button></li>
+            <li className="flex justify-center"><button className="bg-black px-2 font-medium rounded-md py-2 text-white" onClick={handleLogout}>Log Out</button></li>
   </ul>
     </div>: <div className="flex items-center gap-4"><Link className="btn" to='/login'>Log In</Link><Link className="btn" to='/signup'>Register</Link></div>}
   </div>
