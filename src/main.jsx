@@ -7,9 +7,9 @@ import Login from './components/login.jsx'
 import Register from './components/register.jsx'
 import AllArts from './components/allArts.jsx'
 import AddItem from './components/addItem.jsx'
-import UserArts from './components/userArts.jsx'
 import MyArtsAndCrafts from './components/allArts.jsx'
-
+import AuthProvider from './providers/authProvider.jsx'
+import 'react-toastify/dist/ReactToastify.css'
 
 const router = createBrowserRouter([{
     path:'/',
@@ -44,6 +44,8 @@ const router = createBrowserRouter([{
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router}/>
+    </AuthProvider>
   </React.StrictMode>,
 )
