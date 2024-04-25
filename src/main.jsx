@@ -11,6 +11,7 @@ import MyArtsAndCrafts from './components/allArts.jsx'
 import AuthProvider from './providers/authProvider.jsx'
 import 'react-toastify/dist/ReactToastify.css'
 import Home from './components/home.jsx'
+import PrivateRoute from './providers/privateRoute.jsx'
 
 const router = createBrowserRouter([{
     path:'/',
@@ -36,7 +37,7 @@ const router = createBrowserRouter([{
 
       {
         path:'/addCraftItem',
-        element: <AddItem/>
+        element: <PrivateRoute><AddItem/></PrivateRoute>
       },
 
       {
