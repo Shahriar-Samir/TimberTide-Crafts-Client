@@ -2,8 +2,24 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithubSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
+    const {loginWithGoogle,loginWithGithub} = useContext(AuthContext)
+    
+    const loginWithGoogleHandler = ()=>{
+            loginWithGoogle()
+            .then(res=> console.log(res.user))
+            .catch(err=> console.log(err))
+    }
+
+    const loginWithGithubHandler = ()=>{
+            loginWithGithub()
+            .then(res=> console.log(res.user))
+            .catch(err=>console.log(err))
+        }
+
     const handleSubmit =(e)=>{
         e.preventDefault()
         const form = e.target
@@ -12,6 +28,7 @@ const Login = () => {
         console.log(email, password)
         toast.success('Logged in successfully')
     }
+    
     return (
         <>
         <ToastContainer />
@@ -19,8 +36,8 @@ const Login = () => {
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>
         <h1 className='text-3xl font-semibold'>Log In</h1>
         <div className='flex gap-10 items-center'>
-        <FcGoogle  className='text-3xl'/>
-        <FaGithubSquare className='text-3xl'/>
+        <FcGoogle  className='text-3xl' role='button' onClick={loginWithGoogleHandler}/>
+        <FaGithubSquare className='text-3xl' role='button' onClick={loginWithGithubHandler}/>
         </div>
         <div className="divider m-0">Or</div>
         <form className="card-body w-full p-0" onSubmit={handleSubmit}>
