@@ -1,22 +1,33 @@
 import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithubSquare } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
+    const navigate = useNavigate()
     const {loginWithGoogle,loginWithGithub,login} = useContext(AuthContext)
     
     const loginWithGoogleHandler = ()=>{
             loginWithGoogle()
-            .then(res=> console.log(res.user))
+            .then(()=>{
+                toast.success('Logged In Successfully')
+                setTimeout(()=>{
+                    navigate('/')
+                },2000)
+            })
             .catch(err=> console.log(err))
     }
 
     const loginWithGithubHandler = ()=>{
             loginWithGithub()
-            .then(res=> console.log(res.user))
+            .then(()=>{
+                toast.success('Logged In Successfully')
+                setTimeout(()=>{
+                    navigate('/')
+                },2000)
+            })
             .catch(err=>console.log(err))
         }
 
@@ -26,7 +37,12 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         login(email,password)
-        .then(res=> console.log(res))
+        .then(()=>{
+            toast.success('Logged In Successfully')
+            setTimeout(()=>{
+                navigate('/')
+            },2000)
+        })
         .catch(err=> console.log(err))
     }
 
