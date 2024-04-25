@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
+import { Tooltip } from 'react-tooltip';
 
 
 const Navbar = () => {
-    const {userLoggedin,userInfo} = useContext(AuthContext)
+    const {userLoggedin,loader} = useContext(AuthContext)
     console.log(userLoggedin)
     return (
         <div className="navbar bg-base-100">
@@ -31,7 +32,15 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    {userLoggedin ? <img className="w-[50px] h-[50px] rounded-full" src={`${userLoggedin.photoURL}`}/> : <Link className="btn" to='/login'>Log In</Link>}
+    {loader? <span className="loading loading-bars loading-md text-blue-300"></span> : userLoggedin ? <div className="dropdown dropdown-hover dropdown-bottom">
+        <div>
+<img className="w-[50px] h-[50px] rounded-full" src={`${userLoggedin.photoURL}`}/> 
+        </div>
+        <ul tabIndex={0} className="dropdown-content z-[1] right-3  p-2 shadow bg-base-100 rounded-box w-[150px] flex flex-col gap-3 px-5">
+            <li className="font-normal"><h1>{userLoggedin.displayName}</h1></li>
+            <li className="flex justify-center"><button className="bg-black px-2 font-medium rounded-md py-2 text-white">Log Out</button></li>
+  </ul>
+    </div>: <div className="flex items-center gap-4"><Link className="btn" to='/login'>Log In</Link><Link className="btn" to='/signup'>Register</Link></div>}
   </div>
 </div>
     );

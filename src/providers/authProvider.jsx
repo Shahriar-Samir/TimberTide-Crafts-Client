@@ -10,15 +10,18 @@ const AuthProvider = ({children}) => {
     const googleProvider = new GoogleAuthProvider
     const githubProvider = new GithubAuthProvider
     const [userLoggedin ,setUserLoggedin] = useState(false)
+    const [loader,setLoader] = useState(true)
     
     useEffect(()=>{
 
         onAuthStateChanged(auth,user=>{
             if(user){
                 setUserLoggedin(user)
+                setLoader(false)
             }
             else{
                 setUserLoggedin(false)
+                setLoader(false)
             }
     })
     },[])
@@ -39,7 +42,7 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth,githubProvider)
     }
 
-    const userHandlers = {createAccount,login,loginWithGoogle,loginWithGithub, userLoggedin, userInfo}
+    const userHandlers = {createAccount,login,loginWithGoogle,loginWithGithub, userLoggedin, userInfo, loader}
 
     
     return (
