@@ -43,7 +43,9 @@ const Login = () => {
                 navigate('/')
             },2000)
         })
-        .catch(err=> console.log(err))
+        .catch(err=>{
+            toast.error('Incorrect email or password')
+        })
     }
 
     return (

@@ -12,10 +12,12 @@ import AuthProvider from './providers/authProvider.jsx'
 import 'react-toastify/dist/ReactToastify.css'
 import Home from './components/home.jsx'
 import PrivateRoute from './providers/privateRoute.jsx'
+import Errorpage from './components/errorpage.jsx'
 
 const router = createBrowserRouter([{
     path:'/',
     element: <App/>,
+    errorElement: <Errorpage/>,
     children:[
       {
         path: '/',
@@ -42,7 +44,7 @@ const router = createBrowserRouter([{
 
       {
         path:'/myArtsAndCrafts',
-        element: <MyArtsAndCrafts/>
+        element: <PrivateRoute><MyArtsAndCrafts/></PrivateRoute>
       },
       
     ]
