@@ -26,9 +26,13 @@ const MyArts = () => {
                         <figure><img src={`${item.image}`} /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{item.itemName}</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <p>{item.price}</p>
+                            <p>{item.rating}</p>
+                            <p>{item.customization}</p>
+                            <p>{item.stockStatus}</p>
                             <div className="card-actions justify-center mt-5">
-                            <Link to={`/craftDetails/${item._id}`}><button className="btn btn-primary">View Details</button></Link>
+                            <Link to={`/updateCraftItem/${item._id}`}><button className="btn btn-primary">Update</button></Link>
+                            <Link to={`/craftDetails/${item._id}`}><button className="btn btn-primary">Delete</button></Link>
                             </div>
                         </div>
                         </div>
