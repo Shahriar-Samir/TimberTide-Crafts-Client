@@ -18,21 +18,18 @@ const UpdateItem = () => {
         const customization = form.customization.value
         const processingTime = form.processingTime.value
         const stockStatus = form.stockStatus.value
-        const userEmail = form.userEmail.value
-        const userName = form.userName.value
-        const userId = userLoggedin.uid
 
         fetch('http://localhost:5000/crafts',{
-          method: 'POST',
+          method: 'PUT',
           headers:{
             'Content-Type':'application/json'
           },
-          body: JSON.stringify({image, itemName, subcategoryName, shortDescription, price, rating ,customization, processingTime, stockStatus, userName, userEmail, userId})
+          body: JSON.stringify({formData:{image, itemName, subcategoryName, shortDescription, price, rating ,customization, processingTime, stockStatus}, id:craftItem._id})
         })
         .then(res=> res.json())
         .then(status=>{
             if(status.acknowledged){
-              toast.success('New craft item added successfully')
+              toast.success('Updated item successfully')
             }
         })
         .catch(()=>{
@@ -77,7 +74,7 @@ const UpdateItem = () => {
           <label className="label">
             <span className="label-text">Pricing</span>
           </label>
-          <input defaultValue={craftItem.pricing} type="text" placeholder="Pricing" name='pricing' className="input input-bordered" required />
+          <input defaultValue={craftItem.price} type="text" placeholder="Pricing" name='pricing' className="input input-bordered" required />
         </div>
         <div className="form-control w-full">
           <label className="label">
@@ -105,20 +102,6 @@ const UpdateItem = () => {
             <span className="label-text">Stock Status</span>
           </label>
           <input defaultValue={craftItem.stockStatus} type="text" placeholder="Stock status" name='stockStatus' className="input input-bordered" required />
-        </div>
-        <div className='flex w-full gap-4'>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">User Name</span>
-          </label>
-          <input defaultValue={craftItem.userName} type="text" placeholder="User name"  name='userName' className="input input-bordered" required />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">User Email</span>
-          </label>
-          <input defaultValue={craftItem.userEmail} type="email" placeholder="User email" name='userEmail' className="input input-bordered" required />
-        </div>
         </div>
         <div className="form-control mt-6 w-full">
           <button className="btn btn-primary">Update Item</button>

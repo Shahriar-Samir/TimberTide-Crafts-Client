@@ -6,7 +6,11 @@ import { AuthContext } from "../providers/authProvider";
 const MyArts = () => {
     const data = useLoaderData()
     const {userLoggedin} = useContext(AuthContext)
-  
+    
+    const deleteCraftItem = (id)=>{
+            console.log(id)
+    }
+
     return (
         <div className="flex flex-col items-center">
             <h1 className="font-bold text-2xl">Your Arts And Crafts</h1>
@@ -20,8 +24,20 @@ const MyArts = () => {
             </div>
             <div className="grid grid-cols-2 gap-5">
                 {
-                    data.map(item=>{
-                        return <>
+                    data.map((item,index)=>{
+                        return <div key={item._id}>
+                        <dialog id={`my_modal_${index}`} className="modal">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg text-center">Delete</h3>
+                            <p className="py-4 text-center">Are you sure you want to delete this item ?</p>
+                            <div className="modal-action justify-center">
+                            <form method="dialog" className="flex items-center gap-4">
+                                <button className="btn btn-error text-white" onClick={()=>{deleteCraftItem(item._id)}}>Delete</button>
+                                <button className="btn">Cancel</button>
+                            </form>
+                            </div>
+                        </div>
+                        </dialog>
                         <div className="card card-compact w-96 bg-base-100 shadow-xl">
                         <figure><img src={`${item.image}`} /></figure>
                         <div className="card-body">
@@ -32,12 +48,12 @@ const MyArts = () => {
                             <p>{item.stockStatus}</p>
                             <div className="card-actions justify-center mt-5">
                             <Link to={`/updateCraftItem/${item._id}`}><button className="btn btn-primary">Update</button></Link>
-                            <Link to={`/craftDetails/${item._id}`}><button className="btn btn-primary">Delete</button></Link>
+                            <button className="btn btn-error text-white" onClick={()=>document.getElementById(`my_modal_${index}`).showModal()}>Delete</button>
                             </div>
                         </div>
                         </div>
                         
-                        </>
+                        </div>
                     })
                 }
             </div>
