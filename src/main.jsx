@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Home from './components/home.jsx'
 import PrivateRoute from './providers/privateRoute.jsx'
 import Errorpage from './components/errorpage.jsx'
+import CraftItemDetails from './components/craftItemDetails.jsx'
 
 const router = createBrowserRouter([{
     path:'/',
@@ -37,6 +38,13 @@ const router = createBrowserRouter([{
         element: <AllArts/>,
         loader: ()=>{
             return fetch('http://localhost:5000/allcrafts')
+        }
+      },
+      {
+        path:'/craftDetails/:id',
+        element: <PrivateRoute><CraftItemDetails/></PrivateRoute>,
+        loader: ({params})=>{
+            return fetch(`http://localhost:5000/craftitem/${params.id}`)
         }
       },
 
