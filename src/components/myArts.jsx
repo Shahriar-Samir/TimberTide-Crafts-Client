@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 
 const MyArts = () => {
@@ -8,11 +9,23 @@ const MyArts = () => {
     const {userLoggedin} = useContext(AuthContext)
     
     const deleteCraftItem = (id)=>{
-            console.log(id)
+            fetch(`https://localhost:5000/craftitem/${id}`,{
+               method: 'DELETE',
+            })
+            .then(res=> res.json())
+            .then(status=>{
+                if(status.acknowledged){
+                toast.success('Item Deleted successfully')
+                }
+            })
+            .catch(()=>{
+                toast.error('Something went wrong!')
+            })
     }
 
     return (
         <div className="flex flex-col items-center">
+            <ToastContainer/>
             <h1 className="font-bold text-2xl">Your Arts And Crafts</h1>
             <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn m-1">All</div>
