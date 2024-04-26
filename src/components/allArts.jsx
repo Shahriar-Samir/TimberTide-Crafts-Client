@@ -1,6 +1,9 @@
-import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const MyArtsAndCrafts = () => {
+    const craftItems = useLoaderData()
+
+    console.log(craftItems)
     return (
         <div>
            <div className="overflow-x-auto">
@@ -9,39 +12,40 @@ const MyArtsAndCrafts = () => {
     <thead>
       <tr>
 
-        <th>Name</th>
-        <th>Stoke Status</th>
-        <th>Pricing</th>
-        <th></th>
+        <th className='w-2/6'>Name</th>
+        <th className='w-1/6 text-center'>Stoke Status</th>
+        <th className='w-1/6 text-center'>Pricing</th>
+        <th className='w-1/6 text-center'>Rating</th>
+        <th className='w-2/6 text-center'></th>
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
+        {craftItems.map(item=>{
+            return  <tr key={item._id}>
 
-        <td>
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
-                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+            <td>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img src={`${item.image}`}/>
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold">{item.itemName}</div>
+                  <div className="text-sm opacity-50">{item.subcategoryName}</div>
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          Zemlak, Daniel and Leannon
-          <br/>
-          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-        </td>
-        <td>Purple</td>
-        <th>
-          <button className="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
+            </td>
+            <td className=''>
+            {item.stockStatus === 'In stock' ? <p className='mx-auto w-2/3 bg-green-400 text-white text-center p-3 rounded-md font-bold'>{item.stockStatus}</p> : <p className='mx-auto w-2/3 bg-gray-400 text-white text-center p-3 rounded-md font-bold'>{item.stockStatus}</p>}
+            </td>
+            <td className='text-center'>{item.price}</td>
+            <td className='text-center'>{item.rating}</td>
+            <th>
+              <button className="btn btn-ghost btn-xs">details</button>
+            </th>
+          </tr>
+        })}
     </tbody>
 
     
