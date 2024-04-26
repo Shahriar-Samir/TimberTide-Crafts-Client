@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import {toast,ToastContainer} from 'react-toastify'
+import { AuthContext } from '../providers/authProvider';
 
 const AddItem = () => {
+  const {userLoggedin} = useContext(AuthContext)
+
     const addItemHandler = (e)=>{
         e.preventDefault()
         const form = e.target
@@ -15,13 +19,14 @@ const AddItem = () => {
         const stockStatus = form.stockStatus.value
         const userEmail = form.userEmail.value
         const userName = form.userName.value
+        const userId = userLoggedin.uid
 
         fetch('http://localhost:5000/crafts',{
           method: 'POST',
           headers:{
             'Content-Type':'application/json'
           },
-          body: JSON.stringify({image, itemName, subcategoryName, shortDescription, price, rating ,customization, processingTime, stockStatus, userName, userEmail})
+          body: JSON.stringify({image, itemName, subcategoryName, shortDescription, price, rating ,customization, processingTime, stockStatus, userName, userEmail, userId})
         })
         .then(res=> res.json())
         .then(status=>{
@@ -105,13 +110,13 @@ const AddItem = () => {
           <label className="label">
             <span className="label-text">User Name</span>
           </label>
-          <input type="text" placeholder="User name" name='userName' className="input input-bordered" required />
+          <input type="text" placeholder="User name" defaultValue={userLoggedin.displayName ? userLoggedin.displayName : ''} name='userName' className="input input-bordered" required />
         </div>
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text">User Email</span>
           </label>
-          <input type="email" placeholder="User email" name='userEmail' className="input input-bordered" required />
+          <input type="email" placeholder="User email" defaultValue={userLoggedin.email ? userLoggedin.email : ''} name='userEmail' className="input input-bordered" required />
         </div>
         </div>
         <div className="form-control mt-6 w-full">

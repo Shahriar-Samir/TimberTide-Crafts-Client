@@ -34,7 +34,7 @@ const Navbar = () => {
       <li><NavLink to='/' className={({isActive})=> isActive? 'bg-gray-400 text-black' : 'bg-white text-black'}>Home</NavLink></li>
       <li><NavLink to='/allArtsAndCrafts' className={({isActive})=> isActive? 'bg-gray-400 text-black' : 'bg-white text-black'}>All Art & Craft Items</NavLink></li>
       <li><NavLink to='/addCraftItem' className={({isActive})=> isActive? 'bg-gray-400 text-black' : 'bg-white text-black'}>Add Craft Item</NavLink></li>
-      <li><NavLink to='/myArtsAndCrafts' className={({isActive})=> isActive? 'bg-gray-400 text-black' : 'bg-white text-black'}>My Art & Craft List</NavLink></li>
+      <li><NavLink to={`/myArtsAndCrafts/${userLoggedin.uid}`} className={({isActive})=> isActive? 'bg-gray-400 text-black' : 'bg-white text-black'}>My Art & Craft List</NavLink></li>
     </ul>
   </div>
   <div className="navbar-end">

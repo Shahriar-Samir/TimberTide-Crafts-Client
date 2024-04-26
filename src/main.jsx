@@ -7,13 +7,13 @@ import Login from './components/login.jsx'
 import Register from './components/register.jsx'
 import AllArts from './components/allArts.jsx'
 import AddItem from './components/addItem.jsx'
-import MyArtsAndCrafts from './components/allArts.jsx'
 import AuthProvider from './providers/authProvider.jsx'
 import 'react-toastify/dist/ReactToastify.css'
 import Home from './components/home.jsx'
 import PrivateRoute from './providers/privateRoute.jsx'
 import Errorpage from './components/errorpage.jsx'
 import CraftItemDetails from './components/craftItemDetails.jsx'
+import MyArts from './components/myArts.jsx'
 
 const router = createBrowserRouter([{
     path:'/',
@@ -54,8 +54,11 @@ const router = createBrowserRouter([{
       },
 
       {
-        path:'/myArtsAndCrafts',
-        element: <PrivateRoute><MyArtsAndCrafts/></PrivateRoute>
+        path:'/myArtsAndCrafts/:userId',
+        element: <PrivateRoute><MyArts/></PrivateRoute>,
+        loader: ({params})=>{
+            return fetch(`http://localhost:5000/mycrafts/${params.userId}`)
+        }
       },
       
     ]
