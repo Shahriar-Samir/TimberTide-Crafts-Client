@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const MyArts = () => {
@@ -18,16 +18,16 @@ const MyArts = () => {
                 {
                     data.map(item=>{
                         return <>
-                            <div key={item._id} className="card bg-base-100 shadow-xl">
-  <figure><img src={`${item.image}`} /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
+                        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                        <figure><img src={`${item.image}`} /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{item.itemName}</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div className="card-actions justify-center mt-5">
+                            <Link to={`/craftDetails/${item._id}`}><button className="btn btn-primary">View Details</button></Link>
+                            </div>
+                        </div>
+                        </div>
                         
                         </>
                     })
