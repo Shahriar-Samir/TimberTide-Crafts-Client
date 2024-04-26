@@ -54,10 +54,10 @@ const router = createBrowserRouter([{
       },
 
       {
-        path:'/myArtsAndCrafts/:userId',
+        path:'/myArtsAndCrafts/:userId/:customized',
         element: <PrivateRoute><MyArts/></PrivateRoute>,
         loader: ({params})=>{
-            return fetch(`http://localhost:5000/mycrafts/${params.userId}`)
+            return fetch(`http://localhost:5000/mycrafts/${params.userId}/${params.customized}`)
         }
       },
       
