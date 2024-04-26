@@ -1,4 +1,4 @@
-import React from 'react';
+import {toast,ToastContainer} from 'react-toastify'
 
 const AddItem = () => {
     const addItemHandler = (e)=>{
@@ -13,13 +13,33 @@ const AddItem = () => {
         const customization = form.customization.value
         const processingTime = form.processingTime.value
         const stockStatus = form.stockStatus.value
-        const email = form.userEmail.value
-        const name = form.userName.value
-        console.log(image, itemName, subcategoryName, shortDescription, price, rating ,customization, processingTime, stockStatus, email, name)
+        const userEmail = form.userEmail.value
+        const userName = form.userName.value
+
+        fetch('http://localhost:5000/crafts',{
+          method: 'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+          body: JSON.stringify({image, itemName, subcategoryName, shortDescription, price, rating ,customization, processingTime, stockStatus, userName, userEmail})
+        })
+        .then(res=> res.json())
+        .then(status=>{
+            if(status.acknowledged){
+              toast.success('New craft item added successfully')
+            }
+        })
+        .catch(()=>{
+            toast.error('Something went wrong!')
+        })
     }
     return (
-        <div className='flex justify-center items-center'>
-        <form className="w-11/12 max-w-[500px] p-0 flex flex-col items-center" onSubmit={addItemHandler}>
+       <>
+       <ToastContainer/>
+        <div className='flex justify-center items-center h-[140vh]'>
+        <div className='flex flex-col w-11/12 max-w-[500px] gap-5'>
+            <h1 className='text-center text-3xl font-bold'>Add new craft item</h1>
+            <form className="p-0 flex flex-col items-center" onSubmit={addItemHandler}>
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Image</span>
@@ -83,22 +103,24 @@ const AddItem = () => {
         <div className='flex w-full gap-4'>
         <div className="form-control w-full">
           <label className="label">
-            <span className="label-text">User Email</span>
-          </label>
-          <input type="email" placeholder="User email" name='userEmail' className="input input-bordered" required />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
             <span className="label-text">User Name</span>
           </label>
           <input type="text" placeholder="User name" name='userName' className="input input-bordered" required />
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">User Email</span>
+          </label>
+          <input type="email" placeholder="User email" name='userEmail' className="input input-bordered" required />
         </div>
         </div>
         <div className="form-control mt-6 w-full">
           <button className="btn btn-primary">Add Item</button>
         </div>
         </form>
+            </div>
         </div>
+       </>
     );
 };
 
