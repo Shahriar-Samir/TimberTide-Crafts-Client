@@ -5,6 +5,7 @@ import CraftItemCard from './craftItemCard';
 import { useLoaderData } from 'react-router-dom';
 import ContestSection from './contestSection';
 import ResourceSection from './resourceSection';
+import SubcategoriesSection from './subcategoriesSection';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
         <div id='home' className=''>
         <div className='flex justify-center'><DarkModeButton/></div>
         <BannerSection/>
+        <SubcategoriesSection/>
         <ContestSection/>
         {/* craft item section */}
         <section className='mt-10'>

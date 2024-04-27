@@ -2,7 +2,7 @@ import React from 'react';
 
 const ResourceSection = () => {
     return (
-        <div className='h-[500px] flex items-center px-10 gap-10 mt-28'>
+        <div className='h-[400px] flex items-center px-10 gap-10 mt-28'>
         <div className='grid grid-cols-2 grid-rows-2 h-full w-[55%] gap-2 '>
             <div className='col-span-1'>
                 <img src='/images/design1.png' className='w-full h-full object-cover'/>
