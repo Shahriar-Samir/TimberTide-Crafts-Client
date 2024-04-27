@@ -19,7 +19,7 @@ const UpdateItem = () => {
         const processingTime = form.processingTime.value
         const stockStatus = form.stockStatus.value
 
-        fetch('https://assignment-10-backend-dusky.vercel.app/crafts',{
+        fetch('https://assignment-10-server-tawny-tau.vercel.app/crafts',{
           method: 'PUT',
           headers:{
             'Content-Type':'application/json'

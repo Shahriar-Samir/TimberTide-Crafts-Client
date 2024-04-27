@@ -5,7 +5,7 @@ const SubcategoriesSection = () => {
     const [subcategories,setSubcategories] = React.useState([])
     
     useEffect(()=>{
-        fetch('https://assignment-10-backend-dusky.vercel.app/subcategories')
+        fetch('https://assignment-10-server-tawny-tau.vercel.app/subcategories')
         .then(res=> res.json())
         .then(data=> setSubcategories(data))
         .catch(err=> console.log(err))
