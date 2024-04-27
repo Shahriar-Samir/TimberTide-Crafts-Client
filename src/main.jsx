@@ -15,6 +15,7 @@ import Errorpage from './components/errorpage.jsx'
 import CraftItemDetails from './components/craftItemDetails.jsx'
 import MyArts from './components/myArts.jsx'
 import UpdateItem from './components/updateItem.jsx'
+import SubcateogryCrafts from './components/subcateogryCrafts.jsx'
 
 const router = createBrowserRouter([{
     path:'/',
@@ -70,6 +71,13 @@ const router = createBrowserRouter([{
         element: <PrivateRoute><MyArts/></PrivateRoute>,
         loader: ({params})=>{
             return fetch(`http://localhost:5000/mycrafts/${params.userId}/${params.customized}`)
+        }
+      },
+      {
+        path:'/artsAndCrafts/:subcategory',
+        element: <SubcateogryCrafts/>,
+        loader: ({params})=>{
+            return fetch(`http://localhost:5000/artsAndCrafts/${params.subcategory}`)
         }
       },
       
