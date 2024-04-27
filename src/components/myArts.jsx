@@ -9,7 +9,7 @@ const MyArts = () => {
     const {userLoggedin} = useContext(AuthContext)
     
     const deleteCraftItem = (id)=>{
-            fetch(`http://localhost:5000/craftitem/${id}`,{
+            fetch(`https://assignment-10-backend-dusky.vercel.app/craftitem/${id}`,{
                method: 'DELETE',
             })
             .then(res=> res.json())

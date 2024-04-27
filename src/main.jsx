@@ -26,7 +26,7 @@ const router = createBrowserRouter([{
         path: '/',
         element:<Home/>,
         loader: ()=>{
-            return fetch('http://localhost:5000/craftitems')
+            return fetch('https://assignment-10-backend-dusky.vercel.app/craftitems')
         }
       },
       {
@@ -42,14 +42,14 @@ const router = createBrowserRouter([{
         path:'/allArtsAndCrafts',
         element: <AllArts/>,
         loader: ()=>{
-            return fetch('http://localhost:5000/allcrafts')
+            return fetch('https://assignment-10-backend-dusky.vercel.app/allcrafts')
         }
       },
       {
         path:'/craftDetails/:id',
         element: <PrivateRoute><CraftItemDetails/></PrivateRoute>,
         loader: ({params})=>{
-            return fetch(`http://localhost:5000/craftitem/${params.id}`)
+            return fetch(`https://assignment-10-backend-dusky.vercel.app/craftitem/${params.id}`)
         }
       },
 
@@ -62,7 +62,7 @@ const router = createBrowserRouter([{
         path:'/updateCraftItem/:id',
         element: <PrivateRoute><UpdateItem/></PrivateRoute>,
         loader: ({params})=>{
-            return fetch(`http://localhost:5000/craftitem/${params.id}`)
+            return fetch(`https://assignment-10-backend-dusky.vercel.app/craftitem/${params.id}`)
         }
       },
 
@@ -70,14 +70,14 @@ const router = createBrowserRouter([{
         path:'/myArtsAndCrafts/:userId/:customized',
         element: <PrivateRoute><MyArts/></PrivateRoute>,
         loader: ({params})=>{
-            return fetch(`http://localhost:5000/mycrafts/${params.userId}/${params.customized}`)
+            return fetch(`https://assignment-10-backend-dusky.vercel.app/mycrafts/${params.userId}/${params.customized}`)
         }
       },
       {
         path:'/artsAndCrafts/:subcategory',
         element: <SubcateogryCrafts/>,
         loader: ({params})=>{
-            return fetch(`http://localhost:5000/artsAndCrafts/${params.subcategory}`)
+            return fetch(`https://assignment-10-backend-dusky.vercel.app/artsAndCrafts/${params.subcategory}`)
         }
       },
       

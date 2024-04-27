@@ -19,7 +19,7 @@ const UpdateItem = () => {
         const processingTime = form.processingTime.value
         const stockStatus = form.stockStatus.value
 
-        fetch('http://localhost:5000/crafts',{
+        fetch('https://assignment-10-backend-dusky.vercel.app/crafts',{
           method: 'PUT',
           headers:{
             'Content-Type':'application/json'
@@ -47,69 +47,6 @@ const UpdateItem = () => {
         <div className='flex flex-col w-11/12 max-w-[500px] gap-5'>
             <h1 className='text-center text-3xl font-bold'>Update craft item</h1>
             <form className="p-0 flex flex-col items-center" onSubmit={addItemHandler}>
-        {/* <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Image</span>
-          </label>
-          <input defaultValue={craftItem.image} type="text" placeholder="Image URL" name='image' className="input input-bordered" required />
-        </div>
-        <div className='flex w-full gap-4'>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Item Name</span>
-          </label>
-          <input defaultValue={craftItem.itemName} type="text" placeholder="Item name" name='itemName' className="input input-bordered" required />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Subcategory Name</span>
-          </label>
-          <input defaultValue={craftItem.subcategoryName} type="text" placeholder="Subcategory name" name='subcategoryName' className="input input-bordered" required />
-        </div>
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Short description</span>
-          </label>
-          <textarea placeholder="Short description" name='shortDescription' className="input input-bordered pt-2 h-[100px]" defaultValue={craftItem.shortDescription} required />
-        </div>
-        <div className='flex w-full gap-4'>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Pricing</span>
-          </label>
-          <input defaultValue={craftItem.price} type="text" placeholder="Pricing" name='pricing' className="input input-bordered" required />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Rating</span>
-          </label>
-          <input defaultValue={craftItem.rating} type="text" placeholder="Rating" name='rating' className="input input-bordered" required />
-        </div>
-        </div>
-        <div className='flex w-full gap-4'>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Customization</span>
-          </label>
-          <input defaultValue={craftItem.customization} type="text" placeholder="Customization" name='customization' className="input input-bordered" required />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Processing Time</span>
-          </label>
-          <input defaultValue={craftItem.processingTime} type="text" placeholder="Processing time" name='processingTime' className="input input-bordered" required />
-        </div>
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Stock Status</span>
-          </label>
-          <input defaultValue={craftItem.stockStatus} type="text" placeholder="Stock status" name='stockStatus' className="input input-bordered" required />
-        </div>
-        <div className="form-control mt-6 w-full">
-          <button className="btn btn-primary">Update Item</button>
-        </div> */}
          <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Image</span>

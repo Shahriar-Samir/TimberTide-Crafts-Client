@@ -21,7 +21,7 @@ const AddItem = () => {
         const userName = form.userName.value
         const userId = userLoggedin.uid
 
-        fetch('http://localhost:5000/crafts',{
+        fetch('https://assignment-10-backend-dusky.vercel.app/crafts',{
           method: 'POST',
           headers:{
             'Content-Type':'application/json'
