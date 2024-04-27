@@ -5,7 +5,7 @@ const Home = () => {
     const {userLoggedin} = useContext(AuthContext)
 
     return (
-        <div id='home'>
+        <div id='home' className='h-[100vh]'>
         <div className='flex justify-center'><DarkModeButton/></div>
 
         </div>
