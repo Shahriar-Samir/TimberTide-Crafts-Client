@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import { TbError404 } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +9,9 @@ export default function Errorpage() {
     const goBack = ()=>{
         navigate(-1)
     }
+    useEffect(()=>{
+      document.querySelector('html').setAttribute('data-theme', 'light')
+  },[])
   return (
     <div className='flex justify-center items-center h-[100vh]'>
             <div className='flex flex-col items-center'>

@@ -6,10 +6,10 @@ function App() {
 
 
   return (
-    <>
+    <div className="">
      <Navbar/>
      <Outlet/>
-    </>
+    </div>
   )
 }
 

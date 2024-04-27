@@ -1,7 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
 import { Tooltip } from 'react-tooltip';
+
+
+
+
+
 
 
 const Navbar = () => {
@@ -37,7 +42,7 @@ const Navbar = () => {
       <li><NavLink to={`/myArtsAndCrafts/${userLoggedin.uid}/all`} className={({isActive})=> isActive? 'bg-gray-400 text-black' : 'bg-white text-black'}>My Art & Craft List</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end gap-5">
     {loader? <span className="loading loading-bars loading-md text-blue-300"></span> : userLoggedin ? <div className="dropdown dropdown-hover dropdown-bottom">
         <div>
 <img className="w-[50px] h-[50px] rounded-full object-cover" src={`${userLoggedin.photoURL}`}/> 
@@ -46,10 +51,12 @@ const Navbar = () => {
             <li className="font-normal"><h1 className="text-center">{userLoggedin.displayName}</h1></li>
             <li className="flex justify-center"><button className="bg-black px-2 font-medium rounded-md py-2 text-white" onClick={handleLogout}>Log Out</button></li>
   </ul>
-    </div>: <div className="flex items-center gap-4"><Link className="btn" to='/login'>Log In</Link><Link className="btn" to='/signup'>Register</Link></div>}
+    </div>: <div className="flex items-center gap-4"> <Link className="btn" to='/login'>Log In</Link><Link className="btn" to='/signup'>Register</Link></div>}
   </div>
 </div>
     );
 };
 
 export default Navbar;
+
+

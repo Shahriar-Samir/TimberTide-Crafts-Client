@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import {toast,ToastContainer} from 'react-toastify'
 import { AuthContext } from '../providers/authProvider';
 import { useLoaderData } from 'react-router-dom';
@@ -36,6 +36,10 @@ const UpdateItem = () => {
             toast.error('Something went wrong!')
         })
     }
+
+    useEffect(()=>{
+        document.querySelector('html').setAttribute('data-theme', 'light')
+    },[])
     return (
        <>
        <ToastContainer/>

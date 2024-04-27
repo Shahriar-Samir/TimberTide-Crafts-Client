@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
 import { toast, ToastContainer } from "react-toastify";
@@ -9,7 +9,7 @@ const MyArts = () => {
     const {userLoggedin} = useContext(AuthContext)
     
     const deleteCraftItem = (id)=>{
-            fetch(`https://localhost:5000/craftitem/${id}`,{
+            fetch(`http://localhost:5000/craftitem/${id}`,{
                method: 'DELETE',
             })
             .then(res=> res.json())
@@ -22,6 +22,10 @@ const MyArts = () => {
                 toast.error('Something went wrong!')
             })
     }
+
+    useEffect(()=>{
+        document.querySelector('html').setAttribute('data-theme', 'light')
+    },[])
 
     return (
         <div className="flex flex-col items-center">

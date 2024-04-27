@@ -1,6 +1,6 @@
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
@@ -31,6 +31,11 @@ const Login = () => {
         .catch(err=> console.log(err))
         }
     }
+
+    useEffect(()=>{
+      document.querySelector('html').setAttribute('data-theme', 'light')
+  },[])
+
     return (
         <>
         <ToastContainer />

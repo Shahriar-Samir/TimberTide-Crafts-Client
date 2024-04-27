@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const CraftItemDetails = () => {
     const data = useLoaderData()
+
+    useEffect(()=>{
+        document.querySelector('html').setAttribute('data-theme', 'light')
+    },[])
     return (
         <div className='mt-5 w-10/12 max-w-[1000px] mx-auto'>
             <h1 className='text-center text-3xl font-bold'>Craft Details</h1>

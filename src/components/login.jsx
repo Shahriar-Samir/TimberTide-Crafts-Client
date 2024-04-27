@@ -2,7 +2,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithubSquare } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
@@ -47,6 +47,10 @@ const Login = () => {
             toast.error('Incorrect email or password')
         })
     }
+
+    useEffect(()=>{
+      document.querySelector('html').setAttribute('data-theme', 'light')
+  },[])
 
     return (
         <>

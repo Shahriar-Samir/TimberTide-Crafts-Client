@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const MyArtsAndCrafts = () => {
     const craftItems = useLoaderData()
-
-    console.log(craftItems)
+    useEffect(()=>{
+        document.querySelector('html').setAttribute('data-theme', 'light')
+    },[])
     return (
         <div>
            <div className="overflow-x-auto">
