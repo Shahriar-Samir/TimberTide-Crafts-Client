@@ -47,7 +47,7 @@ const UpdateItem = () => {
         <div className='flex flex-col w-11/12 max-w-[500px] gap-5'>
             <h1 className='text-center text-3xl font-bold'>Update craft item</h1>
             <form className="p-0 flex flex-col items-center" onSubmit={addItemHandler}>
-        <div className="form-control w-full">
+        {/* <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Image</span>
           </label>
@@ -109,6 +109,91 @@ const UpdateItem = () => {
         </div>
         <div className="form-control mt-6 w-full">
           <button className="btn btn-primary">Update Item</button>
+        </div> */}
+         <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Image</span>
+          </label>
+          <input type="text" defaultValue={craftItem.image} placeholder="Image URL" name='image' className="input input-bordered" required />
+        </div>
+        <div className='flex w-full gap-4'>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Item Name</span>
+          </label>
+          <input type="text" defaultValue={craftItem.itemName} placeholder="Item name" name='itemName' className="input input-bordered" required />
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Subcategory Name</span>
+          </label>
+          <select name='subcategoryName' className='input input-bordered' defaultValue={craftItem.subcategoryName}  required>
+             <option value="">- - Select a subcategory - -</option>
+             <option value="Wooden Furniture & Sculptures">Wooden Furniture & Sculptures</option>
+             <option value="Wooden Home Decor">Wooden Home Decor
+</option>
+             <option value="Wooden Utensils and Kitchenware">Wooden Utensils and Kitchenware</option>
+             <option value="Jute Home Decor">Jute Home Decor</option>
+             <option value="Jute Kitchenware & utensils">Jute Kitchenware & utensils</option>
+             <option value="Jute and wooden jewellery
+">Jute and wooden jewellery
+</option>
+          </select>
+        </div>
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Short description</span>
+          </label>
+          <textarea placeholder="Short description" name='shortDescription' className="input input-bordered pt-2 h-[100px]" required defaultValue={craftItem.shortDescription}/>
+        </div>
+        <div className='flex w-full gap-4'>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Pricing</span>
+          </label>
+          <input type="number" defaultValue={craftItem.price} step='any' min='0' placeholder="Pricing" name='pricing' className="input input-bordered" required />
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Rating</span>
+          </label>
+          <input type="number" step='any' defaultValue={craftItem.rating} max='5' min='0' placeholder="Rating" name='rating' className="input input-bordered" required />
+        </div>
+        </div>
+        <div className='flex w-full justify-between py-3 pb-2 px-1'>
+        <div className="flex items-center gap-2">
+          <span className="label-text">Customization:</span>
+          <div className='flex gap-2'>
+          <label htmlFor='Yes' className='label-text'>Yes</label>
+         <input id='Yes' required type='radio' name='customization' defaultChecked={craftItem.customization === 'Yes' ? true : false} value='Yes'/>
+          </div>
+         <div className='flex gap-2'>
+          <label htmlFor='No' className='label-text'>No</label>
+         <input id='No' required type='radio' name='customization' defaultChecked={craftItem.customization === 'No' ? true : false} value='No'/>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="label-text ">Stock Status:</span>
+          <div className='flex gap-2'>
+          <label htmlFor='inStock' className='label-text'>In stock</label>
+         <input id='inStock' defaultChecked={craftItem.stockStatus === 'In stock' ? true : false} required type='radio' name='stockStatus' value='In stock'/>
+          </div>
+         <div className='flex gap-2'>
+          <label htmlFor='madeToOrder' className='label-text'>Made to order</label>
+         <input id='madeToOrder' required type='radio' name='stockStatus' defaultChecked={craftItem.stockStatus === 'Made to Order' ? true : false} value='Made to Order'/>
+          </div>
+        </div>
+          
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Processing Time</span>
+          </label>
+          <input type="text" defaultValue={craftItem.processingTime} placeholder="Processing time" name='processingTime' className="input input-bordered" required />
+        </div>
+        <div className="form-control mt-6 w-full">
+          <button className="btn btn-primary" >Add Item</button>
         </div>
         </form>
             </div>
