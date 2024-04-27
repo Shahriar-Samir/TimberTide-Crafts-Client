@@ -3,6 +3,8 @@ import { AuthContext } from '../providers/authProvider';
 import BannerSection from './bannerSection';
 import CraftItemCard from './craftItemCard';
 import { useLoaderData } from 'react-router-dom';
+import ContestSection from './contestSection';
+import ResourceSection from './resourceSection';
 
 
 const Home = () => {
@@ -13,6 +15,7 @@ const Home = () => {
         <div id='home' className=''>
         <div className='flex justify-center'><DarkModeButton/></div>
         <BannerSection/>
+        <ContestSection/>
         {/* craft item section */}
         <section className='mt-10'>
             <h1>Craft Items</h1>
@@ -23,6 +26,7 @@ const Home = () => {
                     })}
             </div>
         </section>
+        <ResourceSection/>
         </div>
     );
 };
