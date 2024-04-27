@@ -47,7 +47,7 @@ const Navbar = () => {
         <div>
 <img className="w-[50px] h-[50px] rounded-full object-cover" src={`${userLoggedin.photoURL}`}/> 
         </div>
-        <ul tabIndex={0} className="dropdown-content z-[1] right-3  p-2 shadow bg-base-100 rounded-box w-[150px] flex flex-col gap-3 px-5">
+        <ul tabIndex={0} className="dropdown-content z-[10] right-3  p-2 shadow bg-base-100 rounded-box w-[150px] flex flex-col gap-3 px-5">
             <li className="font-normal"><h1 className="text-center">{userLoggedin.displayName}</h1></li>
             <li className="flex justify-center"><button className="bg-black px-2 font-medium rounded-md py-2 text-white" onClick={handleLogout}>Log Out</button></li>
   </ul>

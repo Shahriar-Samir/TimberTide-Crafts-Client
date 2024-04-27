@@ -1,50 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/authProvider';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import BannerSection from './bannerSection';
+import CraftItemCard from './craftItemCard';
+import { useLoaderData } from 'react-router-dom';
+
 
 const Home = () => {
     const {userLoggedin} = useContext(AuthContext)
+    const craftItems = useLoaderData()
 
     return (
-        <div id='home' className='h-[100vh]'>
+        <div id='home' className=''>
         <div className='flex justify-center'><DarkModeButton/></div>
-        
-       
-        <div className='w-full mx-auto'>
-        <Swiper
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide className="flex justify-center items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.4),rgba(0,0,0,0)),linear-gradient(to_bottom,rgba(0,0,0,0.4),rgba(0,0,0,0)),url('/images/banner1.jpg')] bg-no-repeat bg-cover bg-center h-full">
-            <div className='h-[500px] flex justify-start items-center'>
-                <h1 className='text-white text-8xl font-bold ms-5'>Discover Natural Elegance</h1>
+        <BannerSection/>
+        {/* craft item section */}
+        <section className='mt-10'>
+            <h1>Craft Items</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos.</p>
+            <div className='grid grid-cols-3'>
+                    {craftItems.map(item=>{
+                        return <CraftItemCard key={item._id} item={item}/>
+                    })}
             </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.4),rgba(0,0,0,0)),linear-gradient(to_bottom,rgba(0,0,0,0.4),rgba(0,0,0,0)),url('/images/banner2.jpg')] bg-no-repeat bg-cover bg-center h-full">
-        <div className='h-[500px]'>
-            
-            </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.4),rgba(0,0,0,0)),linear-gradient(to_bottom,rgba(0,0,0,0.4),rgba(0,0,0,0)),url('/images/banner3.jpg')] bg-no-repeat bg-cover bg-center h-full">
-        <div className='h-[500px]'>
-            
-            </div>
-        </SwiperSlide>
-      </Swiper>
-        </div>
-            
+        </section>
         </div>
     );
 };
