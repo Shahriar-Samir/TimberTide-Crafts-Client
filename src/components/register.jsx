@@ -5,7 +5,7 @@ import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
 
-    const {updateProfileData,createAccount} = useContext(AuthContext)
+    const {updateProfileData,createAccount,setLoader} = useContext(AuthContext)
   const navigate = useNavigate()
 
     const handleSubmit =(e)=>{
@@ -21,16 +21,23 @@ const Login = () => {
         else{
         createAccount(email,password)
         .then(()=>{
-
                 updateProfileData({displayName:name, photoURL: photoUrl})
                 .then(()=>{
+                  setLoader(false)
                     toast.success('Account created successfully')
                     setTimeout(()=>{
                         navigate('/')
                     },3000)
             })
         })
-        .catch(()=> toast.error('Something went wrong'))
+        .catch((err)=> {
+          setLoader(false)
+        if(err.message ==="Firebase: Error (auth/email-already-in-use).")
+        toast.error('Email already in use.')
+          else{
+            toast.error('Something went wrong')
+          }
+      })
         }
     }
 
@@ -40,7 +47,7 @@ const Login = () => {
 
     return (
         <>
-        <ToastContainer autoClose={1500}/>
+        <ToastContainer autoClose={2000}/>
         <div className='flex justify-center items-center h-[90vh]'>
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>
         <h1 className='text-3xl font-semibold'>Create a new account</h1>
@@ -49,7 +56,7 @@ const Login = () => {
           <label className="label pt-0">
             <span className="label-text">Name</span>
           </label>
-          <input type="text" name='name' placeholder="email" className="input input-bordered" required />
+          <input type="text" name='name' placeholder="name" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label pt-0">

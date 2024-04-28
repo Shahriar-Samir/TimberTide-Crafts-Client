@@ -9,40 +9,42 @@ const AuthProvider = ({children}) => {
     const userInfo = auth.currentUser
     const googleProvider = new GoogleAuthProvider
     const githubProvider = new GithubAuthProvider
-    const [userLoggedin ,setUserLoggedin] = useState(false)
+    const [userLoggedin ,setUserLoggedin] = useState(null)
     const [loader,setLoader] = useState(true)
     
     useEffect(()=>{
 
         onAuthStateChanged(auth,user=>{
-            if(user){
+
                 setUserLoggedin(user)
                 setLoader(false)
-            }
-            else{
-                setUserLoggedin(false)
-                setLoader(false)
-            }
+
+
     })
     },[])
 
     const createAccount = (email,password)=>{
+        setLoader(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     const login = (email,password)=>{
+        setLoader(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     
     const loginWithGoogle = ()=>{
+        setLoader(true)
         return signInWithPopup(auth,googleProvider)
     }
     
     const loginWithGithub = ()=>{
+        setLoader(true)
         return signInWithPopup(auth,githubProvider)
     }
 
     const updateProfileData = (user)=>{
+        setLoader(true)
         return updateProfile(auth.currentUser,user)
     }
 
@@ -51,7 +53,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
-    const userHandlers = {createAccount,login,loginWithGoogle,loginWithGithub, userLoggedin, userInfo, updateProfileData, loader,logOut}
+    const userHandlers = {createAccount,login,loginWithGoogle,loginWithGithub, userLoggedin, userInfo, updateProfileData, loader,setLoader, logOut}
 
     
     return (

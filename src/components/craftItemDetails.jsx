@@ -19,6 +19,7 @@ const CraftItemDetails = () => {
             <div className='mt-10 flex flex-col md:flex-row items-center md:items-start gap-10'>
             <img className='w-full md:w-1/2 object-cover h-[450px]' src={`${data.image}`}/>
             <div className='flex flex-col gap-5'>
+            <p className='text-sm'><span className=' font-bold'>Added By </span>: {data.userName}</p>
             <p className='text-sm font-bold'>Subcategory: {data.subcategoryName}</p>
             <p className='text-2xl font-bold'> {data.itemName}</p>
             <p className='text-xl text-[#CF883C] font-bold'>${data.price}</p>

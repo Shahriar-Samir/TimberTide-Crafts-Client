@@ -7,17 +7,23 @@ import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
     const navigate = useNavigate()
-    const {loginWithGoogle,loginWithGithub,login} = useContext(AuthContext)
+    const {loginWithGoogle,loginWithGithub,login, setLoader} = useContext(AuthContext)
     
     const loginWithGoogleHandler = ()=>{
             loginWithGoogle()
             .then(()=>{
+                  setLoader(false)
                 toast.success('Logged In Successfully')
                 setTimeout(()=>{
                     navigate('/')
                 },2000)
             })
-            .catch(err=> toast.error('Something went wrong'))
+            .catch(err=> 
+              {
+                    setLoader(false)
+                toast.error('Something went wrong')
+            
+            })
     }
 
     const loginWithGithubHandler = ()=>{
@@ -28,7 +34,10 @@ const Login = () => {
                     navigate('/')
                 },2000)
             })
-            .catch(()=>toast.error('Something went wrong'))
+            .catch(()=> {
+                setLoader(false)
+            toast.error('Something went wrong')
+          })
         }
 
     const handleSubmit =(e)=>{
@@ -38,12 +47,14 @@ const Login = () => {
         const password = form.password.value
         login(email,password)
         .then(()=>{
+              setLoader(false)
             toast.success('Logged In Successfully')
             setTimeout(()=>{
                 navigate('/')
             },2000)
         })
         .catch(()=>{
+              setLoader(false)
             toast.error('Incorrect email or password')
         })
     }

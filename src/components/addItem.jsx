@@ -97,7 +97,7 @@ const AddItem = () => {
         <div className='flex w-full flex-col md:flex-row gap-4'>
         <div className="form-control w-full">
           <label className="label">
-            <span className=" text-white">Pricing</span>
+            <span className=" text-white">Pricing (USD)</span>
           </label>
           <input type="number" step='any' min='0' placeholder="Pricing" name='pricing' className="input input-bordered" required />
         </div>
