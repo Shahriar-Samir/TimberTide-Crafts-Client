@@ -60,13 +60,15 @@ const MyArts = () => {
                             </div>
                         </div>
                         </dialog>
-                        <div     className={`prefers card max-w-96 mx-auto justify-center  shadow-xl border-2 border-white h-[450px]`}>
-                                <figure className='h-[225px]'><img src={item.image} className='w-full  object-cover' /></figure>
+                        <div     className={`prefers card max-w-96 mx-auto justify-center  shadow-xl border-2 border-white h-[500px]`}>
+                                <figure className='h-[300px]'><img src={item.image} className='w-full  object-cover' /></figure>
                                 <div className="card-body p-3">
-                                <h3 className='font-medium'>{item.subcategoryName}</h3>
-                                <h2 className="font-bold text-xl">{item.itemName}</h2>
-                                <p><span className='font-bold me-3'>Rating:</span>{item.rating} out of 5</p>
-                                <p className='font-bold'>${" "+item.price}</p>
+                                <h3 className='font-sm'>{item.subcategoryName}</h3>
+                                <h2 className="font-semibold text-xl text-[#CF883C]">{item.itemName}</h2>
+                                <p className="font-semibold "><span className='font-semibold me-3'>Rating:</span>{item.rating} out of 5</p>
+                                <p className='font-semibold'>Price: ${" "+item.price}</p>
+                                <p className='font-semibold text'>Stock Status :{" "+item.stockStatus}</p>
+                                <p className='font-semibold'>Customization:{" "+item.customization}</p>
                                 <div className="card-actions items-center justify-center">
                                 <Link to={`/updateCraftItem/${item._id}`} className='border-none btn bg-[#29b129] hover:bg-[#29b129] text-white w-[55%]'><button className="">Update</button></Link>
                                 <button className="btn bg-[#be2d2d] hover:bg-[#be2d2d] border-none text-white" onClick={()=>document.getElementById(`my_modal_${index}`).showModal()}>Delete</button>

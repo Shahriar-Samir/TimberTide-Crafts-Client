@@ -31,9 +31,10 @@ const Home = () => {
   }
 
     return (
-        <div id='home' className=''>
+        <div id='home' className='pb-32'>
         <div className='flex justify-end mx-auto w-11/12 max-w-[1200px] mb-2 mt-2'><DarkModeButton theme={theme} toggleTheme={toggleTheme}/></div>
         <BannerSection/>
+
         <SubcategoriesSection/>
         <ContestSection/>
         {/* craft item section */}

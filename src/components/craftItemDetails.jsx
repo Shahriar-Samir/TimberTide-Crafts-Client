@@ -11,13 +11,13 @@ const CraftItemDetails = () => {
         document.querySelector('html').setAttribute('data-theme', 'light')
     },[])
     return (
-        <div className='mt-10 w-10/12 max-w-[1000px] mx-auto'>
+        <div className='mt-10 w-10/12 max-w-[1000px] mx-auto pb-32'>
             <div className=''>
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>
             <h1 className='text-center text-4xl font-bold'>Craft Details</h1>
             <div className='mt-10 flex flex-col md:flex-row items-center md:items-start gap-10'>
-            <img className='w-full md:w-1/2 object-cover' src={`${data.image}`}/>
+            <img className='w-full md:w-1/2 object-cover h-[450px]' src={`${data.image}`}/>
             <div className='flex flex-col gap-5'>
             <p className='text-sm font-bold'>Subcategory: {data.subcategoryName}</p>
             <p className='text-2xl font-bold'> {data.itemName}</p>

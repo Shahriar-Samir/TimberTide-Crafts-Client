@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
-
+import Lottie from "lottie-react";
+import profileLoading from '../../public/animations/profileLoading.json'
 
 const Navbar = () => {
     const {userLoggedin,loader,logOut} = useContext(AuthContext)
@@ -37,7 +38,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="gap-5">
-    {loader? <span className="loading loading-bars loading-md text-blue-300"></span> : userLoggedin ? <div className="dropdown dropdown-hover dropdown-bottom">
+    {loader? <Lottie animationData={profileLoading} loop={true} className="w-[50px]"/> : userLoggedin ? <div className="dropdown dropdown-hover dropdown-bottom">
         <div>
 <img className="w-[50px] h-[50px] rounded-full object-cover" src={`${userLoggedin.photoURL}`}/> 
         </div>

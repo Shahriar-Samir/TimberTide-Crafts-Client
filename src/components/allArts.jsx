@@ -9,7 +9,7 @@ const MyArtsAndCrafts = () => {
         document.querySelector('html').setAttribute('data-theme', 'light')
     },[])
     return (
-        <div className='w-11/12 mx-auto mt-5 max-w-[1200px]'>
+        <div className='w-11/12 mx-auto mt-5 max-w-[1200px] pb-24'>
            <div className="overflow-x-auto">
            <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
            <h1 className='text-center text-4xl font-bold'>All Arts and Crafts</h1>
