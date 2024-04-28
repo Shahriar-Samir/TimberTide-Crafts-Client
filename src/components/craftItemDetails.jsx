@@ -13,7 +13,7 @@ const CraftItemDetails = () => {
     return (
         <div className='mt-10 w-10/12 max-w-[1000px] mx-auto'>
             <div className=''>
-                <button className='btn bg-[#CF883C] text-white' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
+                <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>
             <h1 className='text-center text-4xl font-bold'>Craft Details</h1>
             <div className='mt-10 flex flex-col md:flex-row items-center md:items-start gap-10'>

@@ -1,15 +1,19 @@
 import { useEffect } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const MyArtsAndCrafts = () => {
+  const navigate = useNavigate()
     const craftItems = useLoaderData()
     useEffect(()=>{
         document.querySelector('html').setAttribute('data-theme', 'light')
     },[])
     return (
-        <div className='w-11/12 mx-auto mt-10 max-w-[1200px]'>
+        <div className='w-11/12 mx-auto mt-5 max-w-[1200px]'>
            <div className="overflow-x-auto">
-  <table className="table table-auto ">
+           <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
+           <h1 className='text-center text-4xl font-bold'>All Arts and Crafts</h1>
+  <table className="table table-auto mt-3">
     {/* head */}
     <thead>
       <tr>
