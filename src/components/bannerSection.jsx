@@ -5,7 +5,9 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Typewriter } from 'react-simple-typewriter'
 
+
 const BannerSection = () => {
+
     return (
         <div className='mx-auto w-full max-w-[1200px]'>
         <Swiper
