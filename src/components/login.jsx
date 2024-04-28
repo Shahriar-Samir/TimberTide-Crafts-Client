@@ -28,7 +28,7 @@ const Login = () => {
                     navigate('/')
                 },2000)
             })
-            .catch(err=>toast.error('Something went wrong'))
+            .catch(()=>toast.error('Something went wrong'))
         }
 
     const handleSubmit =(e)=>{
@@ -43,7 +43,7 @@ const Login = () => {
                 navigate('/')
             },2000)
         })
-        .catch(err=>{
+        .catch(()=>{
             toast.error('Incorrect email or password')
         })
     }
@@ -77,7 +77,7 @@ const Login = () => {
           <input type="password" name='password' placeholder="password" className="input input-bordered" required />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn bg-[#CF883C] hover:bg-[#CF883C] text-white">Login</button>
         </div>
       </form>
       <p>Don't have an account ? <Link className='font-semibold underline' to='/signup'>Create new account</Link></p>
