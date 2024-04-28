@@ -1,16 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
 import Lottie from "lottie-react";
 import profileLoading from '../../public/animations/profileLoading.json'
+import { toast } from "react-toastify";
 
 const Navbar = () => {
     const {userLoggedin,loader,logOut} = useContext(AuthContext)
 
     const handleLogout = ()=>{
         logOut()
-        .then(res=> console.log(res))
-        .catch(err=> console.log(err))
+        .then(()=>{ return <Navigate to='/'></Navigate>})
+        .catch(()=> toast.error('Something went wrong'))
     }
 
     return (

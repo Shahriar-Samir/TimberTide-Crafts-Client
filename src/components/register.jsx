@@ -1,12 +1,12 @@
 import { ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../providers/authProvider';
 
 const Login = () => {
 
     const {updateProfileData,createAccount} = useContext(AuthContext)
-
+  const navigate = useNavigate()
 
     const handleSubmit =(e)=>{
         e.preventDefault()
@@ -23,12 +23,14 @@ const Login = () => {
         .then(()=>{
 
                 updateProfileData({displayName:name, photoURL: photoUrl})
-                .then(res=>{
+                .then(()=>{
                     toast.success('Account created successfully')
-                    console.log(res)
+                    setTimeout(()=>{
+                        navigate('/')
+                    },3000)
             })
         })
-        .catch(err=> console.log(err))
+        .catch(()=> toast.error('Something went wrong'))
         }
     }
 
@@ -38,7 +40,7 @@ const Login = () => {
 
     return (
         <>
-        <ToastContainer />
+        <ToastContainer autoClose={1500}/>
         <div className='flex justify-center items-center h-[90vh]'>
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>
         <h1 className='text-3xl font-semibold'>Create a new account</h1>

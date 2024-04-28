@@ -17,7 +17,7 @@ const Login = () => {
                     navigate('/')
                 },2000)
             })
-            .catch(err=> console.log(err))
+            .catch(err=> toast.error('Something went wrong'))
     }
 
     const loginWithGithubHandler = ()=>{
@@ -28,7 +28,7 @@ const Login = () => {
                     navigate('/')
                 },2000)
             })
-            .catch(err=>console.log(err))
+            .catch(err=>toast.error('Something went wrong'))
         }
 
     const handleSubmit =(e)=>{

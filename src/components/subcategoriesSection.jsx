@@ -26,7 +26,6 @@ const SubcategoriesSection = () => {
         fetch('https://assignment-10-server-tawny-tau.vercel.app/subcategories')
         .then(res=> res.json())
         .then(data=> setSubcategories(data))
-        .catch(err=> console.log(err))
     },[])
 
     return (

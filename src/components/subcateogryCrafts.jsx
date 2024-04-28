@@ -6,7 +6,7 @@ import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 const SubcateogryCrafts = () => {
     const craftItems = useLoaderData()
     const navigate = useNavigate()
-console.log(craftItems)
+
     useEffect(()=>{
         document.querySelector('html').setAttribute('data-theme', 'light')
     },[])
