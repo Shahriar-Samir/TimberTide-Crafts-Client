@@ -1,10 +1,12 @@
 import { useContext, useEffect } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
 import { toast, ToastContainer } from "react-toastify";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 
 const MyArts = () => {
+    const navigate = useNavigate()
     const data = useLoaderData()
     const {userLoggedin} = useContext(AuthContext)
     
@@ -28,9 +30,12 @@ const MyArts = () => {
     },[])
 
     return (
-        <div className="flex flex-col items-center mx-auto w-10/12 max-w-[1200px]">
+        <div className="flex flex-col items-center mx-auto w-11/12 max-w-[1200px] pb-32">
             <ToastContainer/>
-            <h1 className="font-bold mt-12 text-4xl">Your Arts And Crafts</h1>
+            <div className='w-full mt-5'>
+                <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
+            </div>
+            <h1 className="font-bold mt-5 text-4xl">Your Arts And Crafts</h1>
             <div className="dropdown dropdown-end mt-10">
             <div tabIndex={0} role="button" className="btn m-1">Filter</div>
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">

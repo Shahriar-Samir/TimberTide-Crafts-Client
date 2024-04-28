@@ -154,7 +154,7 @@ const AddItem = () => {
         </div>
         </div>
         <div className="form-control mt-6 w-full">
-          <button className="btn " >Add Item</button>
+          <button className="btn bg-[#CF883C] border-none text-white hover:bg-[#CF883C]" >Add Item</button>
         </div>
         </form>
             </div>
