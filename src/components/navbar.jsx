@@ -25,7 +25,7 @@ const Navbar = () => {
       <li><NavLink to='/' className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>Home</NavLink></li>
       <li><NavLink to='/allArtsAndCrafts' className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>All Art & Craft Items</NavLink></li>
       <li><NavLink to='/addCraftItem' className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>Add Craft Item</NavLink></li>
-      <li><NavLink to={`/myArtsAndCrafts/${userLoggedin? userLoggedin.uid : ''}/all`} className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>My Art & Craft List</NavLink></li>
+      <li><NavLink to={`/myArtsAndCrafts/${userLoggedin? userLoggedin.uid : 'unknown'}/all`} className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>My Art & Craft List</NavLink></li>
       </ul>
     </div>
     <Link to='/' className="font-bold p-0 text-xl md:text-3xl text-[#cf883c] flex items-center gap-2 ps-2 lg:p-0"><img src="/icons/icon.png" className="w-[40px]"/> TimberTide Crafts</Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
       <li><NavLink to='/' className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>Home</NavLink></li>
       <li><NavLink to='/allArtsAndCrafts' className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>All Art & Craft Items</NavLink></li>
       <li><NavLink to='/addCraftItem' className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>Add Craft Item</NavLink></li>
-      <li><NavLink to={`/myArtsAndCrafts/${userLoggedin? userLoggedin.uid : ''}/all`} className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>My Art & Craft List</NavLink></li>
+      <li><NavLink to={`/myArtsAndCrafts/${userLoggedin? userLoggedin.uid : 'unknown'}/all`} className={({isActive})=> isActive? 'underline bg-[#cf883c] text-white focus:bg-[#cf883c] focus:text-white hover:bg-transparent hover:text-[#cf883c]' : '  hover:underline hover:bg-transparent focus:bg-transparent'}>My Art & Craft List</NavLink></li>
     </ul>
   </div>
   <div className="gap-5">

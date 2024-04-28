@@ -7,15 +7,16 @@ const PrivateRoute = ({children}) => {
 
     const {loader,userLoggedin} = useContext(AuthContext)
     
+    if(loader){
+        return <Loader/>
+    }
+
     if(userLoggedin){
         return children
     }
     
-    if(loader){
-        return <Loader/>
-    }
     
-    return <Navigate to='/'></Navigate>
+    return <Navigate to='/login'></Navigate>
 };
 
 export default PrivateRoute;

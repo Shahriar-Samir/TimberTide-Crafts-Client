@@ -29,6 +29,7 @@ const Login = () => {
     const loginWithGithubHandler = ()=>{
             loginWithGithub()
             .then(()=>{
+              setLoader(false)
                 toast.success('Logged In Successfully')
                 setTimeout(()=>{
                     navigate('/')
