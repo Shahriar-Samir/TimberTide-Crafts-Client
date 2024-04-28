@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const BannerSection = () => {
     return (
-        <div className='w-full mx-auto'>
+        <div className='mx-auto w-11/12 max-w-[1200px]'>
         <Swiper
         centeredSlides={true}
         autoplay={{
