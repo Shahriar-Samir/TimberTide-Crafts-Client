@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div className="mt-40">
+        <div className="">
             <footer className="footer p-10 bg-neutral text-neutral-content">
     <div className="w-11/12 mx-auto max-w-[1200px] flex justify-between gap-5 flex-wrap">
   <aside>
