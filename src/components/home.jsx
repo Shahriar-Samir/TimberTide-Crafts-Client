@@ -8,21 +8,39 @@ import ResourceSection from './resourceSection';
 import SubcategoriesSection from './subcategoriesSection';
 
 
+
 const Home = () => {
     const {userLoggedin} = useContext(AuthContext)
     const craftItems = useLoaderData()
 
+    const [theme,setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
+    useEffect(()=>{
+        localStorage.setItem('theme', theme)
+        document.querySelector('html').setAttribute('data-theme', theme)
+    },[theme])
+
+
+
+    const toggleTheme = (e)=>{
+        if(e.target.checked){
+          setTheme('dark')
+        }
+        else{
+            setTheme('light')
+        }
+  }
+
     return (
         <div id='home' className=''>
-        <div className='flex justify-end mx-auto w-11/12 max-w-[1200px] mb-2 mt-2'><DarkModeButton/></div>
+        <div className='flex justify-end mx-auto w-11/12 max-w-[1200px] mb-2 mt-2'><DarkModeButton theme={theme} toggleTheme={toggleTheme}/></div>
         <BannerSection/>
         <SubcategoriesSection/>
         <ContestSection/>
         {/* craft item section */}
-        <section className='mt-10'>
-            <h1>Craft Items</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos.</p>
-            <div className='grid grid-cols-3'>
+        <section className='mt-24 mx-auto w-11/12 max-w-[1000px]'>
+            <h1 className='text-center text-6xl font-semibold'>Some Craft Items</h1>
+            <p className='text-center mt-5 '>From elegant wooden decor to eco-friendly jute creations, each piece tells a story of craftsmanship and creativity.</p>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-10 mt-10'>
                     {craftItems.map(item=>{
                         return <CraftItemCard key={item._id} item={item}/>
                     })}
@@ -37,21 +55,8 @@ export default Home;
 
 
 // added dark mode button
-const DarkModeButton = ()=>{
-    const [theme,setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
-    useEffect(()=>{
-        localStorage.setItem('theme', theme)
-        document.querySelector('html').setAttribute('data-theme', theme)
-    },[theme])
+const DarkModeButton = ({theme,toggleTheme})=>{
 
-    const toggleTheme = (e)=>{
-          if(e.target.checked){
-            setTheme('dark')
-          }
-          else{
-              setTheme('light')
-          }
-    }
 
   return(
     <div className='flex items-center gap-2'>

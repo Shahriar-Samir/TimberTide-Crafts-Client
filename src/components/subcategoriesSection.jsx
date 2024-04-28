@@ -3,6 +3,7 @@ import Subcategory from './subcategory';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -15,6 +16,9 @@ import { A11y, Autoplay, FreeMode , Navigation} from 'swiper/modules';
 
 
 const SubcategoriesSection = () => {
+    const min800 = useMediaQuery('(min-width:800px)');
+    const min600 = useMediaQuery('(min-width:600px)');
+
     const swiperRef = useRef();
     const [subcategories,setSubcategories] = React.useState([])
     
@@ -28,12 +32,14 @@ const SubcategoriesSection = () => {
     return (
         <div className='mt-24 w-11/12 max-w-[1200px] mx-auto'>
             <h1 className='text-5xl font-bold text-center'>Choose a category</h1>
-            <p className='text-center mt-7 w-10/12 mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptate? Inventore illo laborum eius neque doloremque eos voluptatum provident nulla!</p>
+            <p className='text-center mt-7 w-10/12 mx-auto'>Choose your category and embark on a journey of imagination and craftsmanship.</p>
             <Swiper
             onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
-        slidesPerView={3}
+        slidesPerView={
+            min800 ? 3 : min600 ? 2 : 1
+        }
         spaceBetween={30}
         freeMode={true}
         autoplay={{

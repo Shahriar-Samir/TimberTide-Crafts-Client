@@ -2,14 +2,14 @@ import React from 'react';
 
 const ContestSection = () => {
     return (
-        <div className='h-[450px] flex items-center mx-auto w-10/12 mt-24 px-10'>
-            <div className='w-1/2'>
-            <h1 className='text-6xl font-bold'>Craft Masters Challenge</h1>
-            <p className='mt-5'>Embark on the Craft Masters Challenge and put your crafting skills to the test! Create stunning jute and wooden masterpieces that showcase your talent and creativity. Compete against fellow crafters, earn recognition for your craftsmanship, and win fabulous prizes. Unleash your imagination and join the ultimate crafting showdown today!</p>
-            <button className='btn bg-[#CF883C] hover:bg-[#a56c2f] mt-5 text-white'>Participate</button>
+        <div className='h-[450px] p-0 flex items-center md:flex-row flex-col-reverse mx-auto w-10/12 max-w-[1000px] gap-5 mt-96 md:mt-24 '>
+            <div className='w-full md:w-1/2 flex flex-col'>
+            <h1 className='text-6xl font-bold text-center md:text-left'>Craft Masters Challenge</h1>
+            <p className='mt-5 text-center md:text-start'>Embark on the Craft Masters Challenge and put your crafting skills to the test! Create stunning jute and wooden masterpieces that showcase your talent and creativity. Compete against fellow crafters, earn recognition for your craftsmanship, and win fabulous prizes. Unleash your imagination and join the ultimate crafting showdown today!</p>
+            <button className='btn bg-[#CF883C] hover:bg-[#a56c2f] mt-5 text-white md:w-fit'>Participate</button>
             </div>
  
-            <img src='/images/contest.jpg' className='w-1/2'/>
+            <img src='/images/contest.jpg' className='md:w-1/2 h-full object-cover'/>
 
         </div>
     );
