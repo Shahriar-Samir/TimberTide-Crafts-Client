@@ -7,9 +7,9 @@ const MyArtsAndCrafts = () => {
         document.querySelector('html').setAttribute('data-theme', 'light')
     },[])
     return (
-        <div>
+        <div className='w-11/12 mx-auto mt-10 max-w-[1200px]'>
            <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table table-auto ">
     {/* head */}
     <thead>
       <tr>
@@ -39,12 +39,12 @@ const MyArtsAndCrafts = () => {
               </div>
             </td>
             <td className=''>
-            {item.stockStatus === 'In stock' ? <p className='mx-auto w-2/3 bg-green-400 text-white text-center p-3 rounded-md font-bold'>{item.stockStatus}</p> : <p className='mx-auto w-2/3 bg-gray-400 text-white text-center p-3 rounded-md font-bold'>{item.stockStatus}</p>}
+            {item.stockStatus === 'In stock' ? <p className='bg-green-400 text-white text-center p-3 rounded-md font-bold w-full'>{item.stockStatus}</p> : <p className='w-full bg-gray-400 text-white text-center p-3 rounded-md font-bold'>{item.stockStatus}</p>}
             </td>
-            <td className='text-center'>{item.price}</td>
+            <td className='text-center'>${item.price}</td>
             <td className='text-center'>{item.rating}</td>
             <th>
-              <Link to={`/craftDetails/${item._id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
+              <Link to={`/craftDetails/${item._id}`}><button className="border-none btn bg-[#CF883C] hover:bg-[#a56c2f] text-white">details</button></Link>
             </th>
           </tr>
         })}
