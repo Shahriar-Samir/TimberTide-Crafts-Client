@@ -4,6 +4,7 @@ import { FaGithubSquare } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../providers/authProvider';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -66,6 +67,11 @@ const Login = () => {
 
     return (
         <>
+             <HelmetProvider>
+                <Helmet>
+                <title>TimberTide Crafts || Login</title>
+                </Helmet>
+                </HelmetProvider>
         <ToastContainer />
         <div className='flex justify-center items-center h-[90vh]'>
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>

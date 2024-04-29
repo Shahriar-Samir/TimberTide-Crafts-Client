@@ -11,6 +11,10 @@ const PrivateRoute = ({children}) => {
         return <Loader/>
     }
 
+    if(!userLoggedin){
+        
+    }
+
     if(userLoggedin){
         return children
     }

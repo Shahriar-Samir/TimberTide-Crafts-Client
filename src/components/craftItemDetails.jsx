@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const CraftItemDetails = () => {
     const navigate = useNavigate()
@@ -12,6 +13,12 @@ const CraftItemDetails = () => {
     },[])
     return (
         <div className='mt-10 w-10/12 max-w-[1000px] mx-auto pb-32'>
+                      <HelmetProvider>
+
+                        <Helmet>
+                        <title>TimberTide Crafts || Craft Item Details</title>
+                        </Helmet>
+                        </HelmetProvider>
             <div className=''>
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>

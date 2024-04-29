@@ -6,6 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 import ContestSection from './contestSection';
 import ResourceSection from './resourceSection';
 import SubcategoriesSection from './subcategoriesSection';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 
@@ -32,6 +33,16 @@ const Home = () => {
 
     return (
         <div id='home' className='pb-32'>
+
+          <HelmetProvider>
+
+          <Helmet>
+          <title>TimberTide Crafts || Home</title>
+          </Helmet>
+          </HelmetProvider>
+
+
+
         <div className='flex justify-end mx-auto w-11/12 max-w-[1200px] mb-2 mt-2'><DarkModeButton theme={theme} toggleTheme={toggleTheme}/></div>
         <BannerSection/>
 

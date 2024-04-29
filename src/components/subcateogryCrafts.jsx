@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
@@ -13,6 +14,12 @@ const SubcateogryCrafts = () => {
 
     return (
         <div className='pt-10 pb-32 w-11/12 mx-auto max-w-[1200px]'>
+                  <HelmetProvider>
+
+                    <Helmet>
+                    <title>TimberTide Crafts || Subcategory Crafts</title>
+                    </Helmet>
+                    </HelmetProvider>
              <div className=''>
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>

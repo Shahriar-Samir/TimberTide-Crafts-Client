@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
@@ -9,7 +10,15 @@ const MyArtsAndCrafts = () => {
         document.querySelector('html').setAttribute('data-theme', 'light')
     },[])
     return (
+      <>
+                   <HelmetProvider>
+
+                    <Helmet>
+                      <title>TimberTide Crafts || All Craft Items</title>
+                    </Helmet>
+                    </HelmetProvider>
         <div className='w-11/12 mx-auto mt-5 max-w-[1200px] pb-24'>
+  
            <div className="overflow-x-auto">
            <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
            <h1 className='text-center text-4xl font-bold'>All Arts and Crafts</h1>
@@ -58,6 +67,7 @@ const MyArtsAndCrafts = () => {
   </table>
 </div>
         </div>
+        </>
     );
 };
 

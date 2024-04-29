@@ -2,6 +2,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../providers/authProvider';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -47,6 +48,12 @@ const Login = () => {
 
     return (
         <>
+                <HelmetProvider>
+                <Helmet>
+                <title>TimberTide Crafts || Sign up</title>
+                </Helmet>
+                </HelmetProvider>
+
         <ToastContainer autoClose={2000}/>
         <div className='flex justify-center items-center h-[90vh]'>
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>

@@ -1,5 +1,6 @@
 
 import { useEffect } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { TbError404 } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +15,12 @@ export default function Errorpage() {
   },[])
   return (
     <div className='flex justify-center items-center h-[100vh]'>
+            <HelmetProvider>
+
+              <Helmet>
+              <title>TimberTide Crafts || Error</title>
+              </Helmet>
+              </HelmetProvider>
             <div className='flex flex-col items-center'>
                     <TbError404  className='text-[200px]'/>
                     <div className='flex items-center flex-col gap-3'>

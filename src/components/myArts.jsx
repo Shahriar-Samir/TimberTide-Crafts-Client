@@ -3,6 +3,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
 import { toast, ToastContainer } from "react-toastify";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 const MyArts = () => {
@@ -31,6 +32,13 @@ const MyArts = () => {
 
     return (
         <div className="flex flex-col items-center mx-auto w-11/12 max-w-[1200px] pb-32">
+                             <HelmetProvider>
+
+                                <Helmet>
+                                <title>TimberTide Crafts || My Craft items</title>
+                                </Helmet>
+                                </HelmetProvider>
+
             <ToastContainer/>
             <div className='w-full mt-5'>
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>

@@ -13,9 +13,8 @@ const AuthProvider = ({children}) => {
     const [loader,setLoader] = useState(true)
     
     useEffect(()=>{
-
+            
         onAuthStateChanged(auth,user=>{
-
                 setUserLoggedin(user)
                 setLoader(false)
 

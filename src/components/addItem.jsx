@@ -3,6 +3,7 @@ import {toast,ToastContainer} from 'react-toastify'
 import { AuthContext } from '../providers/authProvider';
 import { useNavigate } from 'react-router-dom';
 import { IoMdArrowRoundBack } from 'react-icons/io';
+import {Helmet, HelmetProvider} from 'react-helmet-async'
 
 const AddItem = () => {
   const {userLoggedin} = useContext(AuthContext)
@@ -49,6 +50,13 @@ const AddItem = () => {
   
     return (
        <>
+
+<HelmetProvider>
+
+      <Helmet>
+        <title>TimberTide Crafts || Add Craft Item</title>
+      </Helmet>
+  </HelmetProvider>
        <ToastContainer/>
        
         <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.4),rgba(0,0,0,0)),linear-gradient(to_bottom,rgba(0,0,0,0.4),rgba(0,0,0,0)),url('/images/additem.jpg')] bg-no-repeat bg-cover pt-5 pb-20">
