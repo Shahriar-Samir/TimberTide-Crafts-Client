@@ -7,6 +7,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const UpdateItem = () => {
   const craftItem = useLoaderData()
+  const {userLoggedin} = useContext(AuthContext)
   const navigate = useNavigate()
     const updateItemHandler = (e)=>{
         e.preventDefault()
@@ -32,6 +33,9 @@ const UpdateItem = () => {
         .then(status=>{
             if(status.acknowledged){
               toast.success('Updated item successfully')
+              setTimeout(()=>{
+                navigate(`/myArtsAndCrafts/${userLoggedin.uid}/all`)
+              },2000)
             }
         })
         .catch(()=>{
@@ -143,7 +147,7 @@ const UpdateItem = () => {
           <input defaultValue={craftItem.processingTime}  type="text" placeholder="Processing time" name='processingTime' className="input input-bordered" required />
         </div>
         <div className="form-control mt-6 w-full">
-          <button className="btn bg-[#CF883C] border-none text-white hover:bg-[#CF883C]" >Add Item</button>
+          <button className="btn bg-[#CF883C] border-none text-white hover:bg-[#CF883C]" >Update Item</button>
         </div>
         </form>
             </div>

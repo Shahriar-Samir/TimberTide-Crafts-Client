@@ -18,7 +18,10 @@ const MyArts = () => {
             .then(res=> res.json())
             .then(status=>{
                 if(status.acknowledged){
-                toast.success('Item Deleted successfully')
+                toast.success('Craft item Deleted successfully')
+                    setTimeout(()=>{
+                      navigate(`/myArtsAndCrafts/${userLoggedin.uid}/all`)
+                    },1000)
                 }
             })
             .catch(()=>{

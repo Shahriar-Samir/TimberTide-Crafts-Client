@@ -35,6 +35,9 @@ const AddItem = () => {
         .then(res=> res.json())
         .then(status=>{
             if(status.acknowledged){
+              setTimeout(()=>{
+                navigate(`/myArtsAndCrafts/${userLoggedin.uid}/all`)
+              },2000)
               toast.success('New craft item added successfully')
             }
         })
