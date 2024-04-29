@@ -7,6 +7,7 @@ import ContestSection from './contestSection';
 import ResourceSection from './resourceSection';
 import SubcategoriesSection from './subcategoriesSection';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -33,7 +34,7 @@ const Home = () => {
 
     return (
         <div id='home' className='pb-32'>
-
+            <ToastContainer/>
           <HelmetProvider>
 
           <Helmet>

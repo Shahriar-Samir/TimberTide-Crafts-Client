@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const MyArtsAndCrafts = () => {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ const MyArtsAndCrafts = () => {
                       <title>TimberTide Crafts || All Craft Items</title>
                     </Helmet>
                     </HelmetProvider>
+                    <ToastContainer/>
         <div className='w-11/12 mx-auto mt-5 max-w-[1200px] pb-24'>
   
            <div className="overflow-x-auto">

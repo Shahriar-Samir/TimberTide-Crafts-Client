@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 
 const SubcateogryCrafts = () => {
@@ -20,6 +21,7 @@ const SubcateogryCrafts = () => {
                     <title>TimberTide Crafts || Subcategory Crafts</title>
                     </Helmet>
                     </HelmetProvider>
+                    <ToastContainer/>
              <div className=''>
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>

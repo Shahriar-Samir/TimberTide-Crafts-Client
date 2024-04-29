@@ -3,18 +3,20 @@ import { Link, Navigate, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/authProvider";
 import Lottie from "lottie-react";
 import profileLoading from '../../public/animations/profileLoading.json'
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = () => {
     const {userLoggedin,loader,logOut,userInfo} = useContext(AuthContext)
 
     const handleLogout = ()=>{
         logOut()
-        .then(()=>{ return <Navigate to='/'></Navigate>})
+        .then(()=>{ toast.success('User logged out')})
         .catch(()=> toast.error('Something went wrong'))
     }
 
     return (
+      <>
+
         <div className="p-0 py-3 navbar justify-between border-b-[1px] border-black dark:border-gray-300 mx-auto w-11/12 max-w-[1200px]">
   <div className="">
     <div className="dropdown">
@@ -51,6 +53,7 @@ const Navbar = () => {
     </div>: <div className="flex items-center gap-4"> <Link className="btn" to='/login'>Log In</Link><Link className="btn" to='/signup'>Register</Link></div>}
   </div>
 </div>
+</>
     );
 };
 
