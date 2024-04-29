@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../providers/authProvider';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 
 const Login = () => {
 
@@ -55,7 +56,11 @@ const Login = () => {
                 </HelmetProvider>
 
         <ToastContainer autoClose={2000}/>
-        <div className='flex justify-center items-center h-[90vh]'>
+
+        <div className='w-11/12 mt-5 mx-auto max-w-[1200px]'>
+                <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
+            </div>
+        <div className='flex justify-center items-center h-[80vh] mb-32'>
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>
         <h1 className='text-3xl font-semibold'>Create a new account</h1>
         <form className="card-body w-full p-0" onSubmit={handleSubmit}>
