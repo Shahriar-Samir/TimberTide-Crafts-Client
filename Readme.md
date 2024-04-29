@@ -1,5 +1,5 @@
-Website Name : TimberTide Crafts
-Website URL :  https://emailpassword-60174.firebaseapp.com/
+Website Name : TimberTide Crafts ,
+Website URL :  https://emailpassword-60174.firebaseapp.com/ ,
 
 
 Features and characteristics of this website -
