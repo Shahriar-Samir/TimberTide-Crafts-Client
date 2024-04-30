@@ -61,7 +61,7 @@ const UpdateItem = () => {
        
         <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.4),rgba(0,0,0,0)),linear-gradient(to_bottom,rgba(0,0,0,0.4),rgba(0,0,0,0)),url('/images/additem.jpg')] bg-no-repeat bg-cover pt-5 pb-20">
         <div className='w-11/12 max-w-[1200px]'>
-                <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
+                <button className='btn mt-5' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>
         <div className='flex flex-col w-11/12 max-w-[500px] gap-5 mt-10'>
         <h1 className='text-center text-3xl font-bold text-white'>Update craft item</h1>

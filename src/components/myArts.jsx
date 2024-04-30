@@ -44,7 +44,7 @@ const MyArts = () => {
 
             <ToastContainer/>
             <div className='w-full mt-5'>
-                <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
+                <button className='btn mt-5' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>
             <h1 className="font-bold mt-5 text-4xl">Your Arts And Crafts</h1>
             <div className="dropdown dropdown-end mt-10">

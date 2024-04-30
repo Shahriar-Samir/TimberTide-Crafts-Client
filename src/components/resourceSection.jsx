@@ -2,7 +2,7 @@
 
 const ResourceSection = () => {
     return (
-        <div className=' flex flex-col lg:flex-row items-center mx-auto w-10/12 max-w-[1200px] gap-10 mt-28'>
+        <div className=' flex flex-col lg:flex-row items-center mx-auto w-10/12 max-w-[1000px] gap-10 mt-28'>
         <div className='grid grid-cols-2 grid-rows-2 w-full lg:w-[55%] gap-2 h-[400px] '>
             <div className='col-span-1 '>
                 <img src='/images/design1.png' className='w-full h-full object-cover'/>

@@ -24,7 +24,7 @@ const MyArtsAndCrafts = () => {
            <div className="overflow-x-auto">
            <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
            <h1 className='text-center text-2xl md:text-4xl font-bold mt-5 md:m-0'>All Arts and Crafts</h1>
-  <table className="table table-auto mt-3">
+  <table className="table mt-3">
     {/* head */}
     <thead>
       <tr>
@@ -47,8 +47,8 @@ const MyArtsAndCrafts = () => {
                     <img src={`${item.image}`}/>
                   </div>
                 </div>
-                <div>
-                  <div className="font-bold">{item.itemName}</div>
+                <div className='max-w-[150px]'>
+                  <div className="font-bold ">{item.itemName}</div>
                   <div className="text-sm opacity-50">{item.subcategoryName}</div>
                 </div>
               </div>
