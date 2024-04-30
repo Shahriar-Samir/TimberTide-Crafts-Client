@@ -15,6 +15,13 @@ const Footer = () => {
     <a className="link link-hover font-semibold">Email: timbercrafts@gmail.com</a>
     <a className="link link-hover font-semibold">Phone: 00945603458</a>
   </nav>
+  <nav className="flex flex-col gap-2">
+    <h6 className="footer-title">Services</h6> 
+    <a className="link link-hover font-semibold">Branding</a>
+    <a className="link link-hover font-semibold">Design</a>
+    <a className="link link-hover font-semibold">Marketing</a>
+    <a className="link link-hover font-semibold">Advertisement</a>
+  </nav>
   <nav>
     <h6 className="footer-title">Social</h6> 
     <div className="grid grid-flow-col gap-10">
