@@ -22,7 +22,7 @@ const CraftItemDetails = () => {
             <div className=''>
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>
-            <h1 className='text-center text-4xl font-bold'>Craft Details</h1>
+            <h1 className='text-center text-2xl md:text-4xl font-bold mt-5 md:m-0'>Craft Details</h1>
             <div className='mt-10 flex flex-col md:flex-row items-center md:items-start gap-10'>
             <img className='w-full md:w-1/2 object-cover h-[450px]' src={`${data.image}`}/>
             <div className='flex flex-col gap-5'>

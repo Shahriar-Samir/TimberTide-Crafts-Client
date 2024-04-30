@@ -64,6 +64,7 @@ const UpdateItem = () => {
                 <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
             </div>
         <div className='flex flex-col w-11/12 max-w-[500px] gap-5 mt-10'>
+        <h1 className='text-center text-3xl font-bold text-white'>Update craft item</h1>
             <form className="p-0 flex flex-col items-center" onSubmit={updateItemHandler}>
         <div className="form-control w-full">
           <label className="label">

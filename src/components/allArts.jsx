@@ -23,7 +23,7 @@ const MyArtsAndCrafts = () => {
   
            <div className="overflow-x-auto">
            <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl'/> Go Back</button>
-           <h1 className='text-center text-4xl font-bold'>All Arts and Crafts</h1>
+           <h1 className='text-center text-2xl md:text-4xl font-bold mt-5 md:m-0'>All Arts and Crafts</h1>
   <table className="table table-auto mt-3">
     {/* head */}
     <thead>
