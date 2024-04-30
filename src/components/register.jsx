@@ -58,7 +58,7 @@ const Login = () => {
         <ToastContainer autoClose={2000}/>
 
         <div className='w-11/12 mt-5 mx-auto max-w-[1200px]'>
-                <button className='btn' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl mt-5'/> Go Back</button>
+                <button className='btn mt-5' onClick={()=>  navigate(-1)}><IoMdArrowRoundBack className='text-xl '/> Go Back</button>
             </div>
         <div className='flex justify-center items-center h-[80vh] mb-32'>
         <div className='w-11/12 max-w-[350px] flex flex-col items-center gap-5'>
