@@ -51,7 +51,7 @@ const Home = () => {
         <ContestSection/>
         {/* craft item section */}
         <section className='mt-24 mx-auto w-11/12 max-w-[1000px]'>
-            <h1 className='text-center text-6xl font-semibold'>Some Craft Items</h1>
+            <h1 className='text-center text-5xl font-semibold'>Some Craft Items</h1>
             <p className='text-center mt-5 '>From elegant wooden decor to eco-friendly jute creations, each piece tells a story of craftsmanship and creativity.</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-10 mt-10'>
                     {craftItems.map(item=>{

@@ -18,7 +18,7 @@ const ResourceSection = () => {
             </div>
         </div>
         <div className='w-full lg:w-[45%] flex flex-col gap-5 '>
-        <h1 className='text-6xl font-bold text-center md:text-left'>Crafting Resource Library</h1>
+        <h1 className='text-5xl font-bold text-center md:text-left'>Crafting Resource Library</h1>
         <p>A treasure trove of invaluable resources for crafters of all levels! Dive into our comprehensive library curated with downloadable guides, templates, patterns, and reference materials tailored specifically for jute and wooden crafts. Explore a variety of categories including beginner's guides, advanced techniques, project ideas, and sustainability tips, designed to empower crafters to unlock their creativity and enhance their skills. Browse, download, and bookmark your favorite resources to embark on a fulfilling and enriching crafting experience!</p>
         <button className='btn bg-[#CF883C] hover:bg-[#a56c2f] mt-5 text-white'>Go to resources</button>
         </div>

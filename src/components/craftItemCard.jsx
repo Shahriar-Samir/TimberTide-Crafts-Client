@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaCheckCircle } from "react-icons/fa";
 
 
 const CraftItemCard = ({item}) => {
@@ -17,7 +17,7 @@ const CraftItemCard = ({item}) => {
     <p className='font-bold'>${" "+price}</p>
     <div className="card-actions items-center justify-center">
     <Link to={`/craftDetails/${_id}`} className='border-none btn bg-[#CF883C] hover:bg-[#a56c2f] text-white w-[55%]'><button className="">View Details</button></Link>
-    <p className={` font-bold text-white w-[35%] p-2 ${stockStatus==='In stock'? 'btn cursor-default hover:bg-black bg-black': 'btn cursor-default hover:bg-gray-300 bg-gray-300'}`}>{stockStatus}</p>
+    <p className={` font-bold text-white w-[35%] p-2 ${stockStatus==='In stock'? 'btn cursor-default  border border-white': 'btn cursor-default hover:bg-gray-300 bg-gray-300'}`}>{stockStatus === 'In stock' ? <span className='flex gap-2 text-green-500'><FaCheckCircle/> {stockStatus}</span> : stockStatus}</p>
     </div>
   </div>
 </div>  
