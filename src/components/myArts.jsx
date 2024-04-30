@@ -55,7 +55,7 @@ const MyArts = () => {
                 <li><Link to={`/myArtsAndCrafts/${userLoggedin.uid}/customized-no`}>Customization - No</Link></li>
             </ul>
             </div>
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mt-10">
+           {data.length > 0?  <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mt-10">
                 {
                     data.map((item,index)=>{
                         return <div key={item._id}>
@@ -90,7 +90,10 @@ const MyArts = () => {
                         </div>
                     })
                 }
-            </div>
+            </div> : <div className="h-[50vh]">
+            <p className="mt-10">You haven't added any craft items</p>
+                
+                </div>}
         </div>
     );
 };
